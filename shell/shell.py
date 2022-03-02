@@ -48,9 +48,9 @@ while True:
         elif '<' in args:
             i = args.index('<')
             os.close(1)
-            os.open(args[i + 1], os.O_CREAT | os.O_WRONLY)
+            os.open(args[i-1], os.O_CREAT | os.O_WRONLY)
             os.set_inheritable(1, True)
-            child_command = args[:i]
+            child_command = args[i:]
 
         # Piping
         elif '|' in args:
